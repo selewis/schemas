@@ -2,7 +2,7 @@
 /**
 This protocol defines feature expression counts on GA4GH reads. 
 */
-protocol Expression {
+protocol RnaQuantifications {
 
 import idl "common.avdl";
 import idl "reads.avdl";
@@ -10,7 +10,7 @@ import idl "reads.avdl";
 /**
 Top level identifying information
 */
-record ExpressionAnalysis {
+record RnaQuantification {
   /** 
   The unique ID assigned to the results of running the described programs on the
 specified reads and assignment to the listed annotation.
@@ -48,7 +48,7 @@ Read characterization data.
 */
 record Characterization {
   /** 
-  The associated ExpressionAnalysis. 
+  The associated RnaQuantification. 
   */
   string analysisId;
  
@@ -83,7 +83,7 @@ Details of the read counts.
 */
 record ReadCounts {
   /** 
-  The associated ExpressionAnalysis. 
+  The associated RnaQuantification.
   */
   string analysisId;
 
@@ -123,7 +123,7 @@ record FeatureGroup {
   string id;
 
   /** 
-  The associated ExpressionAnalysis. 
+  The associated RnaQuantification.
   */
   string analysisId;
  
