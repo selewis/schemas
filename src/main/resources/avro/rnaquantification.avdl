@@ -8,6 +8,14 @@ import idl "common.avdl";
 import idl "reads.avdl";
 
 /**
+Units for expression level
+*/
+enum ExpressionUnits {
+  FPKM,
+  RPM
+}
+
+/**
 Top level identifying information
 */
 record RnaQuantification {
@@ -174,9 +182,30 @@ record ExpressionLevel {
   string annotationId;
 
   /**
-  Numerical expression value in FPKM.
+  The number of reads mapped to this feature.
   */
-  float expression;
+  float rawReadCount;
+
+  /**
+  Numerical expression value.
+  */
+  union { null, float } expression = null;
+
+  /**
+  True if the expression value is a normalized value.
+  */
+  union { null, boolean } isNormalized = false;
+
+  /**
+  The units of the expression value if one is given.
+  */
+  union { null, ExpressionUnits } units = null;
+
+  /**
+  Weighted score for the expression value.
+  */
+  union { null, float } score = null;
+
 }
 
 }
