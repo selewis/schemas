@@ -69,9 +69,19 @@ as JSON.
 */
 record SearchExpressionLevelRequest {
   /**
-  If present, return only Expression Level records which belong to this set.
+  If present, return matching Expression Level record.
   */
   union { null, string } expressionLevelId = null;
+
+  /**
+  If present return only ExpressionLevel records which belong to this set.
+  */
+  union { null, string } featureGroupId = null;
+
+  /**
+  If present returns ExpressionLevel records which belong to this set.
+  */
+  union { null, string } rnaQuantificationId = null;
 
   /**
   Specifies the maximum number of results to return in a single page.
