@@ -34,10 +34,6 @@ This is the response from 'POST /rnaquantification/search' expressed as JSON.
 */
 record SearchRnaQuantificationResponse {
   /** The list of matching quantifications. */
-  /**
-  The line below is causing problems - naming or something wrong with the
-  import perhaps?
-  */
   array<RnaQuantification> rnaQuantification = [];
 
   /**
@@ -130,5 +126,57 @@ SearchExpressionLevelResponse searchExpressionLevel(
     */
     SearchExpressionLevelRequest request) throws GAException;
 
+/****************  /featuregroup/search  *******************/
+/**
+This request maps to the body of 'POST /featuregroup/search'
+as JSON.
+*/
+record SearchFeatureGroupRequest {
+  /**
+  If present, return only Feature Groups which belong to this set.
+  */
+  union { null, string } featureGroupId = null;
 
+  /**
+  Specifies the maximum number of results to return in a single page.
+  If unspecified, a system default will be used.
+  */
+  union { null, int } pageSize = null;
+
+  /**
+  The continuation token, which is used to page through large result sets.
+  To get the next page of results, set this parameter to the value of
+  'nextPageToken' from the previous response.
+  */
+  union { null, string } pageToken = null;
+}
+
+/**
+This is the response from 'POST /featuregroup/search' expressed as JSON.
+*/
+record SearchFeatureGroupResponse {
+  /** The list of matching feature groups. */
+  array<FeatureGroup> featureGroup = [];
+
+  /**
+  The continuation token, which is used to page through large result sets.
+  To get the next page of results, set this parameter to the value of
+  'nextPageToken' from the previous response.
+  */
+  union { null, string } nextPageToken = null;
+}
+
+/**
+Gets a list of 'FeatureGroup' matching the search criteria.
+
+'POST /featuregroup/search' must accept JSON version of
+'SearchFeatureGroupRequest' as the post body and will return a JSON
+version of 'SearchFeatureGroupResponse'.
+*/
+SearchFeatureGroupResponse searchFeatureGroup(
+    /**
+    This request maps to the body of 'POST /featuregroup/search'
+    as JSON.
+    */
+    SearchFeatureGroupRequest request) throws GAException;
 }
