@@ -206,6 +206,11 @@ record ExpressionLevel {
   */
   union { null, float } score = null;
 
+  /**
+  Confidence interval on the expression value.  Expressed as a sorted array
+  from low to high.
+  */
+  array<float> confInterval = [];
 }
 
 }
