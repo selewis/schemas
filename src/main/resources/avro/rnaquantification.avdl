@@ -194,7 +194,7 @@ record ExpressionLevel {
   /**
   True if the expression value is a normalized value.
   */
-  union { null, boolean } isNormalized = false;
+  union { null, boolean } isNormalized = null;
 
   /**
   The units of the expression value if one is given.

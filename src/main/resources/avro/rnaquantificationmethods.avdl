@@ -1,6 +1,7 @@
-@namespace("org.ga4gh")
+@namespace("org.ga4gh.methods")
 protocol RnaQuantificationMethods {
 
+import idl "methods.avdl";
 import idl "common.avdl";
 import idl "rnaquantification.avdl";
 
@@ -34,7 +35,7 @@ This is the response from 'POST /rnaquantification/search' expressed as JSON.
 */
 record SearchRnaQuantificationResponse {
   /** The list of matching quantifications. */
-  array<RnaQuantification> rnaQuantification = [];
+  array<org.ga4gh.RnaQuantification> rnaQuantification = [];
 
   /**
   The continuation token, which is used to page through large result sets.
@@ -102,7 +103,7 @@ record SearchExpressionLevelResponse {
   The line below is causing problems - naming or something wrong with the
   import perhaps?
   */
-  array<ExpressionLevel> expressionLevel = [];
+  array<org.ga4gh.ExpressionLevel> expressionLevel = [];
 
   /**
   The continuation token, which is used to page through large result sets.
@@ -156,7 +157,7 @@ This is the response from 'POST /featuregroup/search' expressed as JSON.
 */
 record SearchFeatureGroupResponse {
   /** The list of matching feature groups. */
-  array<FeatureGroup> featureGroup = [];
+  array<org.ga4gh.FeatureGroup> featureGroup = [];
 
   /**
   The continuation token, which is used to page through large result sets.
